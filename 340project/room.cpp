@@ -1,0 +1,36 @@
+#include "room.h"
+
+Room::Room(int roomNumber) : roomNumber(roomNumber), guest(nullptr) {
+    // Constructor implementation
+}
+
+Room::~Room() {
+    // Destructor implementation
+    // If you dynamically allocate memory for guests, ensure to free it here
+}
+
+void Room::assignGuest(Guest* newGuest) {
+    guest = newGuest; // Assign the new guest to the room
+}
+
+void Room::vacate() {
+    guest = nullptr; // Vacate the room
+}
+
+bool Room::isOccupied() const {
+    return guest != nullptr; // Check if the room is occupied
+}
+
+Guest* Room::getGuest() const {
+    return guest; // Return the guest in the room
+}
+
+int Room::getRoomNumber() const {
+    return roomNumber; // Return the room number
+}
+
+void Room::setGuest(Guest* newGuest) {
+    guest = newGuest; // Assign the new guest to the room
+}
+
+// Implement other necessary methods...

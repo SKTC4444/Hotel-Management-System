@@ -46,4 +46,25 @@ void Building::sortGuests() {
     } while (swapped);
 }
 
-// Implement other necessary methods...
+int Building::getNumberOfFloors() const {
+    return floors.size();
+}
+
+Floor& Building::getFloor(int index) {
+    // Assuming index is always valid. Add checks for invalid index if necessary.
+    return floors[index];
+}
+
+Elevator& Building::getElevator(int index) {
+    // Assuming index is valid and LinkedList supports this operation
+    return elevators.get(index); // You might need to implement this in LinkedList
+}
+
+bool Building::isFull() const {
+    for (const auto& floor : floors) {
+        if (floor.hasAvailableRoom()) {
+            return false; // Found a floor with an unoccupied room
+        }
+    }
+    return true; // No unoccupied rooms in the entire building
+}

@@ -19,6 +19,7 @@ public:
 
     Node<T>* getHead() const; // Get the head of the list
 
+    T& get(int index);
     // Additional methods tailored for tracking guests and elevators can be added here...
 
     // Iterator class for LinkedList

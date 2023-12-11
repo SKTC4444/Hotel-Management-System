@@ -12,7 +12,7 @@ public:
     Room(int roomNumber); // Constructor with room number
     ~Room(); // Destructor
 
-    void assignGuest(Guest* guest); // Assign a guest to the room
+
     void vacate(); // Vacate the room
     bool isOccupied() const; // Check if the room is occupied
     Guest* getGuest() const; // Get the guest in the room

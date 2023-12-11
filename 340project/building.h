@@ -24,7 +24,10 @@ public:
     Guest* searchGuestByName(const std::string& name); // Linear search
     void sortGuests(); // Bubble sort
 
-    // Other necessary methods...
+    int getNumberOfFloors() const;
+    Floor& getFloor(int index);
+    Elevator& getElevator(int index);
+    bool isFull() const;
 };
 
 #endif // BUILDING_H

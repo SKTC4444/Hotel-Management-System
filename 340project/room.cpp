@@ -9,10 +9,6 @@ Room::~Room() {
     // If you dynamically allocate memory for guests, ensure to free it here
 }
 
-void Room::assignGuest(Guest* newGuest) {
-    guest = newGuest; // Assign the new guest to the room
-}
-
 void Room::vacate() {
     guest = nullptr; // Vacate the room
 }

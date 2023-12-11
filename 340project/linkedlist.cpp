@@ -27,6 +27,18 @@ void LinkedList<T>::insert(const T& data) {
 }
 
 template <typename T>
+T& LinkedList<T>::get(int index) {
+    Node<T>* current = head;
+    for (int i = 0; current != nullptr && i < index; ++i) {
+        current = current->next;
+    }
+    if (current == nullptr) {
+        throw std::out_of_range("Index out of range"); // Or handle the error as appropriate
+    }
+    return current->data;
+}
+
+template <typename T>
 bool LinkedList<T>::remove(const T& data) {
     // Remove an element from the list
     Node<T>* current = head;

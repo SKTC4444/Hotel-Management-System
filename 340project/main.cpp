@@ -8,34 +8,73 @@
 int main() {
     // Create the building with floors and rooms
     Building hotel;
-    // Add floors and rooms to the hotel (assuming your Building class has methods for this)
+    for (int i = 0; i < 5; i++) {  // 5 floors
+        Floor floor;
+        for (int j = 0; j < 10; j++) {  // 10 rooms per floor
+            int roomNumber = (i * 100) + j + 100;
+            floor.addRoom(Room(roomNumber));
+        }
+        hotel.addFloor(floor);
+    }
 
     // Create an elevator and add it to the building
     Elevator elevator;
-    // Add the elevator to the hotel (assuming your Building class has a method for this)
+    hotel.addElevator(elevator);
 
     // Create a clerk
     Clerk clerk("John Doe", &hotel);
 
-    // Simulate interaction with a guest
-    std::string guestName;
-    std::cout << "Welcome to the hotel! Please enter your name: ";
-    std::getline(std::cin, guestName);
+    while (true) {
+        if (hotel.isFull()) {
+            std::string response;
+            do {
+                std::cout << "The hotel is currently full. Would you like to continue? (yes/no): ";
+                std::getline(std::cin, response);
+                if (response == "EXIT") {
+                    std::cout << "Exiting the hotel management system." << std::endl;
+                    return 0; // Exit the program
+                }
+            } while (response != "yes" && response != "no");
 
-    // Create a guest
-    Guest guest(guestName);
+            if (response == "no") {
+                std::cout << "Exiting the hotel management system." << std::endl;
+                break; // Exit the loop
+            }
 
-    // Clerk checks in the guest and assigns a room
-    clerk.checkInGuest(guest); // Assuming Clerk has this method
-    clerk.assignRoomToGuest(guest); // Assuming Clerk has this method
+            // Logic to vacate a room for a new guest (to be implemented)
+        }
 
-    // Guest uses the elevator to go to their floor
-    elevator.addPassenger(&guest); // Assuming Elevator has this method
-    elevator.moveToFloor(guest.getFloorNumber()); // Assuming Guest has getFloorNumber method
-    elevator.removePassenger(&guest); // Assuming Elevator has this method
+        // Simulate interaction with a guest
+        std::string guestName;
+        std::cout << "Welcome to the hotel! Please enter your name (or type 'EXIT' to exit): ";
+        std::getline(std::cin, guestName);
 
-    // Guest goes to their room
-    // You can add logic here to simulate the guest going to their room
+        // Check for exit condition
+        if (guestName == "EXIT") {
+            std::cout << "Exiting the hotel management system." << std::endl;
+            break;
+        }
+
+        // Create a guest
+        Guest guest(guestName);
+
+        // Clerk checks in the guest and assigns a room
+        clerk.checkInGuest(guest);
+        clerk.assignRoomToGuest(guest);
+
+        // Announce room assignment
+        std::cout << "Guest " << guest.getName() << " has been assigned to room " << guest.getRoomNumber() << std::endl;
+
+        // Simulate guest using the elevator to go to their floor
+        std::cout << "Guest " << guest.getName() << " enters the elevator." << std::endl;
+        elevator.addPassenger(&guest);
+        elevator.moveToFloor(guest.getFloorNumber());
+        std::cout << "Elevator reaches floor " << guest.getFloorNumber() << "." << std::endl;
+        elevator.removePassenger(&guest);
+
+        // Simulate guest entering their room
+        std::cout << "Guest " << guest.getName() << " exits the elevator and enters room " << guest.getRoomNumber() << std::endl;
+    }
 
     return 0;
 }

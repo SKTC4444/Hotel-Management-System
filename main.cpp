@@ -41,7 +41,8 @@ int main() {
                 break; // Exit the loop
             }
 
-            // Logic to vacate a room for a new guest (to be implemented)
+            // Logic to vacate a room for a new guest
+            hotel.vacateRoom();
         }
 
         // Simulate interaction with a guest
@@ -65,6 +66,26 @@ int main() {
         // Announce room assignment
         std::cout << "Guest " << guest.getName() << " has been assigned to room " << guest.getRoomNumber() << std::endl;
 
+        // Performing linear search
+        Guest* searchedGuest = hotel.searchGuestByName(guestName);
+        if (searchedGuest) {
+            std::cout << "Found guest: " << searchedGuest->getName() << std::endl;
+        } else {
+            std::cout << "Guest not found." << std::endl;
+        }
+
+        // Performing bubble sort
+        hotel.sortGuests();
+        std::cout << "Guests sorted alphabetically." << std::endl;
+
+        // Displaying sorted guest names with room numbers
+        LinkedList<Guest>& guestList = hotel.getGuestList();
+        std::cout << "Current guests in the hotel:" << std::endl;
+        for (auto it = guestList.begin(); it != guestList.end(); ++it) {
+            Guest& currentGuest = *it;
+            std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
+        }
+
         // Simulate guest using the elevator to go to their floor
         std::cout << "Guest " << guest.getName() << " enters the elevator." << std::endl;
         elevator.addPassenger(&guest);
@@ -76,5 +97,6 @@ int main() {
         std::cout << "Guest " << guest.getName() << " exits the elevator and enters room " << guest.getRoomNumber() << std::endl;
     }
 
+    std::cout << "Exiting the hotel management system." << std::endl;
     return 0;
 }

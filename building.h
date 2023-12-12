@@ -28,6 +28,8 @@ public:
     Floor& getFloor(int index);
     Elevator& getElevator(int index);
     bool isFull() const;
+    LinkedList<Guest>& getGuestList();
+    void vacateRoom();
 };
 
 #endif // BUILDING_H

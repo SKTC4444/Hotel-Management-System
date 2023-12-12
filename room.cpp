@@ -6,7 +6,6 @@ Room::Room(int roomNumber) : roomNumber(roomNumber), guest(nullptr) {
 
 Room::~Room() {
     // Destructor implementation
-    // If you dynamically allocate memory for guests, ensure to free it here
 }
 
 void Room::vacate() {

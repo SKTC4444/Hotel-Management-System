@@ -57,7 +57,7 @@ Floor& Building::getFloor(int index) {
 
 Elevator& Building::getElevator(int index) {
     // Assuming index is valid and LinkedList supports this operation
-    return elevators.get(index); // You might need to implement this in LinkedList
+    return elevators.get(index); // might need to implement this in LinkedList
 }
 
 bool Building::isFull() const {
@@ -67,4 +67,21 @@ bool Building::isFull() const {
         }
     }
     return true; // No unoccupied rooms in the entire building
+}
+
+LinkedList<Guest>& Building::getGuestList() {
+    return guests;
+}
+
+void Building::vacateRoom() {
+
+    for (auto& floor : floors) {
+        for (int i = 0; i < floor.getNumberOfRooms(); ++i) {
+            Room* room = floor.getRoom(i);
+            if (room && room->isOccupied()) {
+                room->vacate(); // Vacate the room
+                return;
+            }
+        }
+    }
 }

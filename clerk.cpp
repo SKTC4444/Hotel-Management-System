@@ -17,8 +17,8 @@ void Clerk::assignRoomToGuest(Guest& guest) {
     for (int i = 0; i < assignedBuilding->getNumberOfFloors(); ++i) {
         Floor& floor = assignedBuilding->getFloor(i);
         for (int j = 0; j < floor.getNumberOfRooms(); ++j) {
-            Room* room = floor.getRoom(j); // getRoom returns a pointer
-            if (room && !room->isOccupied()) { // Check if room is valid and not occupied
+            Room* room = floor.getRoom(j);
+            if (room && !room->isOccupied()) {
                 int roomNumber = (i + 1) * 100 + j;
                 guest.assignRoom(roomNumber, i + 1);
                 room->setGuest(&guest);
@@ -29,7 +29,14 @@ void Clerk::assignRoomToGuest(Guest& guest) {
         if (roomAssigned) break;
     }
     if (!roomAssigned) {
-        std::cout << "No available rooms for guest " << guest.getName() << std::endl; // Corrected cout statement
+        std::cout << "No available rooms for guest " << guest.getName() << std::endl;
+    } else {
+        // Update guest in LinkedList
+        Guest* guestInList = assignedBuilding->searchGuestByName(guest.getName());
+        if (guestInList) {
+            guestInList->assignRoom(guest.getRoomNumber(), guest.getFloorNumber());
+        }
     }
 }
+
 // Implement other necessary methods...

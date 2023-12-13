@@ -5,7 +5,7 @@
 Floor::Floor() {
     // Initialize the floor with a predefined number of rooms
     for (int i = 0; i < 10; ++i) {
-        rooms.emplace_back(i); // Assuming Room has a constructor that takes a room number
+        rooms.emplace_back(i);
     }
 }
 
@@ -45,4 +45,3 @@ bool Floor::hasAvailableRoom() const {
     return false; // No unoccupied rooms on this floor
 }
 
-// Implement other necessary methods...

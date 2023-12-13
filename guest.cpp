@@ -18,8 +18,6 @@ int Guest::getFloorNumber() const {
 }
 
 bool operator==(const Guest& lhs, const Guest& rhs) {
-    // Define how two Guest objects are compared
-    // For example, comparing based on name and room number
     return lhs.getName() == rhs.getName() && lhs.getRoomNumber() == rhs.getRoomNumber();
 }
 

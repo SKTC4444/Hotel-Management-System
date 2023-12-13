@@ -33,7 +33,7 @@ T& LinkedList<T>::get(int index) {
         current = current->next;
     }
     if (current == nullptr) {
-        throw std::out_of_range("Index out of range"); // Or handle the error as appropriate
+        throw std::out_of_range("Index out of range");
     }
     return current->data;
 }
@@ -90,7 +90,7 @@ Node<T>* LinkedList<T>::getHead() const {
     return head; // Return the head of the list
 }
 
-// Implementing Iterator class methods (you need to fill in the details based on your design)
+
 template <typename T>
 typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
     return Iterator(head);
@@ -103,8 +103,6 @@ typename LinkedList<T>::Iterator LinkedList<T>::end() const {
 
 template <typename T>
 typename LinkedList<T>::Iterator& LinkedList<T>::Iterator::operator++() {
-    // Increment operator logic here
-    // Example:
     current = current->next;
     return *this;
 }
@@ -126,7 +124,6 @@ T& LinkedList<T>::Iterator::operator*() const {
     return current->data;
 }
 
-// Explicit template instantiation
 template class LinkedList<int>;
 template class LinkedList<double>;
 template class LinkedList<Guest>;

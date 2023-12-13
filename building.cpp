@@ -13,17 +13,17 @@ void Building::addFloor(const Floor& floor) {
 }
 
 void Building::addElevator(const Elevator& elevator) {
-    elevators.insert(elevator); // Assuming LinkedList has an insert method
+    elevators.insert(elevator);
 }
 
 void Building::addGuest(const Guest& guest) {
-    guests.insert(guest); // Assuming LinkedList has an insert method
+    guests.insert(guest);
 }
 
 Guest* Building::searchGuestByName(const std::string& name) {
-    // Iterate through the linked list of guests to find the guest by name
+    // Iterate through the linked list of guests to find the guest by name using linear search
     for (auto& guest : guests) {
-        if (guest.getName() == name) { // Assuming Guest has a getName method
+        if (guest.getName() == name) {
             return &guest;
         }
     }
@@ -51,13 +51,11 @@ int Building::getNumberOfFloors() const {
 }
 
 Floor& Building::getFloor(int index) {
-    // Assuming index is always valid. Add checks for invalid index if necessary.
     return floors[index];
 }
 
 Elevator& Building::getElevator(int index) {
-    // Assuming index is valid and LinkedList supports this operation
-    return elevators.get(index); // might need to implement this in LinkedList
+    return elevators.get(index);
 }
 
 bool Building::isFull() const {
@@ -90,9 +88,9 @@ Building::Building(const int &numFloors, const int& numRooms, const int &capacit
     if(numFloors < 0 || capacity < 0){
         throw std::invalid_argument("Invalid argument");
     }
-    for (int i = 0; i < numFloors; i++) {  // 5 floors
+    for (int i = 0; i < numFloors; i++) {
         Floor floor;
-        for (int j = 0; j < numRooms/numFloors; j++) {  // 10 rooms per floor
+        for (int j = 0; j < numRooms/numFloors; j++) {
             int roomNumber = (i * 100) + j + 100;
             floor.addRoom(Room(roomNumber));
         }

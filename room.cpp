@@ -28,4 +28,3 @@ void Room::setGuest(Guest* newGuest) {
     guest = newGuest; // Assign the new guest to the room
 }
 
-// Implement other necessary methods...

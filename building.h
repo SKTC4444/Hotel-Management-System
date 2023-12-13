@@ -16,8 +16,6 @@ private:
     int numFloors;
     int numRooms;
 
-    //TODO add capacity to building, as of now it is unlimited
-
 public:
     Building(); // Constructor
     Building(const int& numFloors, const int& numRooms, const int& capacity);

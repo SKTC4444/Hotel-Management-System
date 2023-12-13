@@ -13,7 +13,6 @@ std::string Person::getName() const {
 }
 
 void Person::setName(const std::string &name) {
-    Person::name = name;
+    Person::name = name; // Set name
 }
 
-// Implement other necessary common methods...

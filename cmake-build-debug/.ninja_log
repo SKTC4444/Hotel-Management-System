@@ -1,0 +1,12 @@
+# ninja log v5
+3	3111	1702508756828093816	CMakeFiles/340project.dir/guest.cpp.o	9a60b7c6316d3f0f
+4	3249	1702508756967464874	CMakeFiles/340project.dir/linkedlist.cpp.o	7f937663bc823056
+3	3453	1702508757171325691	CMakeFiles/340project.dir/floor.cpp.o	a0746aeed28f25b7
+2	3584	1702508757289748181	CMakeFiles/340project.dir/building.cpp.o	b11917d12ceec6f2
+2	3790	1702508757502565408	CMakeFiles/340project.dir/clerk.cpp.o	4d66a62dc2923157
+1	3957	1702508757674199933	CMakeFiles/340project.dir/main.cpp.o	c1d4ebcfe86e74e6
+3249	5153	1702508758850552277	CMakeFiles/340project.dir/person.cpp.o	2996aaf3cb729bc9
+3117	5190	1702508758906296396	CMakeFiles/340project.dir/node.cpp.o	1a1d1ade4ba995bb
+3454	5262	1702508758983043631	CMakeFiles/340project.dir/room.cpp.o	adf3c610156e18c6
+3584	5538	1702508759259606476	CMakeFiles/340project.dir/elevator.cpp.o	5efc49ab0a0e94a7
+5539	5653	1702508759383753211	340project	76531afef26c801e

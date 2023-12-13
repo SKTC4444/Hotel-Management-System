@@ -17,7 +17,7 @@ public:
 
     void setAssignedBuilding(Building *assignedBuilding);
     // Pointer to the building where the clerk works
-    //bool loggedIntoSystem = false; // Boolean to check if the clerk is logged into the system
+
 
 public:
     Clerk(const std::string& name, Building* building); // Constructor with clerk's name and assigned building
@@ -25,7 +25,7 @@ public:
 
     void checkInGuest(Guest& guest); // Check in a guest
     void assignRoomToGuest(Guest& guest); // Assign a room to a guest
-    //bool isLoggedIntoSystem() const; // Check if the clerk is logged into the system
+
 
 };
 

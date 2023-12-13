@@ -53,9 +53,3 @@ Building *Clerk::getAssignedBuilding() const {
 void Clerk::setAssignedBuilding(Building *assignedBuilding) {
     Clerk::assignedBuilding = assignedBuilding;
 }
-
-
-
-
-
-// Implement other necessary methods...

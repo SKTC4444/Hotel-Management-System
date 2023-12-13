@@ -10,6 +10,5 @@ Node<T>::Node(const T& data, Node* next) : data(data), next(next) {
 // Explicit template instantiation
 template class Node<int>;
 template class Node<double>;
-// Add explicit instantiations for custom types like Guest and Elevator
 template class Node<Guest>;
 template class Node<Elevator>;

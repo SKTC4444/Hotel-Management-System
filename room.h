@@ -18,8 +18,6 @@ public:
     Guest* getGuest() const; // Get the guest in the room
     int getRoomNumber() const; // Get the room number
     void setGuest(Guest* newGuest);
-
-    // Additional methods if necessary...
 };
 
 #endif // ROOM_H

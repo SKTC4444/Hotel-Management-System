@@ -1,6 +1,6 @@
 #include "guest.h"
 
-Guest::Guest(const std::string& name) : Person(name), roomNumber(-1), floorNumber(-1) {
+Guest::Guest(const std::string& name) : Person(name), roomNumber(-1), floorNumber(-1), checkIn(false) {
     // Constructor implementation
 }
 
@@ -27,6 +27,6 @@ bool Guest::isCheckedIn() const {
     return checkIn;
 }
 
-void Guest::setCheckIn(bool checkIn) {
-    Guest::checkIn = checkIn;
+void Guest::setCheckIn(bool check) {
+    this->checkIn = check;
 }

@@ -10,8 +10,13 @@ Clerk::~Clerk() {
 }
 
 void Clerk::checkInGuest(Guest& guest) {
-    assignedBuilding->addGuest(guest);
-    guest.setCheckIn(true);
+    if(!guest.isCheckedIn()) {
+        assignedBuilding->addGuest(guest);
+        guest.setCheckIn(true);
+        std::cout << "Guest " << guest.getName() << " has been checked in." << std::endl;
+    } else {
+        std::cout << "Guest " << guest.getName() << " is already checked in." << std::endl;
+    }
 }
 
 void Clerk::assignRoomToGuest(Guest& guest) {

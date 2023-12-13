@@ -10,7 +10,7 @@ private:
     int floorNumber; // Floor number assigned to the guest
     bool checkIn;
 public:
-    void setCheckIn(bool checkIn);
+    void setCheckIn(bool check);
 
 public:
     Guest(const std::string& name); // Constructor with guest's name

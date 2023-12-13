@@ -13,6 +13,7 @@ Building hotel(5,20,20);
 
 
 void startScreen(){
+    std::cout << std::endl;
     std::cout << "Welcome to the Hotel Management System!" << std::endl;
     std::cout << "This program will simulate a hotel." << std::endl;
     std::cout << "The program will allow you to check in guests, assign rooms, and search for guests." << std::endl;
@@ -28,8 +29,6 @@ bool loginScreen(){
     std::cout << "1. Sign-in" << std::endl;
     std::cout << "2. Exit" << std::endl;
     int userChoice;
-
-    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cin >> userChoice;
     switch (userChoice) {
@@ -57,6 +56,7 @@ bool loginScreen(){
 void mainInterface(){
     int userChoice;
     Elevator elevator;
+    Guest guest("");
     while(userChoice != 6){
         std::cout << std::endl;
         std::cout << "Select an option:" << std::endl;
@@ -73,12 +73,11 @@ void mainInterface(){
             case 1: {
                 std::cout << "Please enter the name of the guest: " << std::endl;
                 std::cin >> guestName;
-                Guest guest(guestName);
+                guest = Guest(guestName);
                 if(hotel.isFull()){
                     std::cout << "The hotel is currently full. Please vacate a room before checking in: " << std::endl;
                     break;
                 } else{
-                    std::cout << "Guest " << guestName << " has been checked in." << std::endl;
                     clerkInstance.checkInGuest(guest);
                     break;
                 }
@@ -86,12 +85,11 @@ void mainInterface(){
             case 2:{
                 std::cout << "Please enter the name of the guest: " << std::endl;
                 std::cin >> guestName;
-                Guest guest(guestName);
                 LinkedList<Guest>& guestList = hotel.getGuestList();
                 for (auto it = guestList.begin(); it != guestList.end(); ++it) {
                     Guest &currentGuest = *it;
                     if (currentGuest.getName() == guestName) {
-                        guest = currentGuest;
+                        currentGuest = guest;
                     }
                 }
                 if(hotel.isFull()){
@@ -147,8 +145,6 @@ void mainInterface(){
                     else{
                         std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
                     }
-
-                    //std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
 
                 }
                 break;

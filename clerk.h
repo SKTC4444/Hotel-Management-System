@@ -13,7 +13,7 @@ class Clerk : public Person {
 private:
     Building* assignedBuilding;
 public:
-    Building *getAssignedBuilding() const;
+    //Building *getAssignedBuilding() const;
 
     void setAssignedBuilding(Building *assignedBuilding);
     // Pointer to the building where the clerk works

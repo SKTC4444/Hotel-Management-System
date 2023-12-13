@@ -14,7 +14,7 @@ public:
 
     void addRoom(const Room& room); // Add a room to the floor
     Room* getRoom(int roomNumber); // Get a room by its number
-    void addGuestToRoom(Guest& guest, int roomNumber); // Add a guest to a specific room
+   // void addGuestToRoom(Guest& guest, int roomNumber); // Add a guest to a specific room
     bool hasAvailableRoom() const;
     int getNumberOfRooms() const; // New method to get the number of rooms on the floor
 };

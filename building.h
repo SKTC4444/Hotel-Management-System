@@ -22,14 +22,14 @@ public:
     ~Building(); // Destructor
 
     void addFloor(const Floor& floor);
-    void addElevator(const Elevator& elevator);
+    //void addElevator(const Elevator& elevator);
     void addGuest(const Guest& guest);
     Guest* searchGuestByName(const std::string& name); // Linear search
     void sortGuests(); // Bubble sort
 
     int getNumberOfFloors() const;
     Floor& getFloor(int index);
-    Elevator& getElevator(int index);
+   // Elevator& getElevator(int index);
     bool isFull() const;
     LinkedList<Guest>& getGuestList();
     void vacateRoom();

@@ -12,10 +12,10 @@ void Building::addFloor(const Floor& floor) {
     floors.push_back(floor);
 }
 
-void Building::addElevator(const Elevator& elevator) {
+/*void Building::addElevator(const Elevator& elevator) {
     elevators.insert(elevator);
 }
-
+*/
 void Building::addGuest(const Guest& guest) {
     guests.insert(guest);
 }
@@ -54,9 +54,10 @@ Floor& Building::getFloor(int index) {
     return floors[index];
 }
 
-Elevator& Building::getElevator(int index) {
+/*Elevator& Building::getElevator(int index) {
     return elevators.get(index);
 }
+*/
 
 bool Building::isFull() const {
     for (const auto& floor : floors) {

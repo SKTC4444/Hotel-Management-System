@@ -46,9 +46,10 @@ void Clerk::assignRoomToGuest(Guest& guest) {
     }
 }
 
-Building *Clerk::getAssignedBuilding() const {
+/*Building *Clerk::getAssignedBuilding() const {
     return assignedBuilding;
 }
+ */
 
 void Clerk::setAssignedBuilding(Building *assignedBuilding) {
     Clerk::assignedBuilding = assignedBuilding;

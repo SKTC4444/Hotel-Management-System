@@ -12,15 +12,20 @@ private:
     std::vector<Floor> floors;
     LinkedList<Elevator> elevators;
     LinkedList<Guest> guests;
+    int capacity;
+    int numFloors;
+    int numRooms;
+
+    //TODO add capacity to building, as of now it is unlimited
 
 public:
     Building(); // Constructor
+    Building(const int& numFloors, const int& numRooms, const int& capacity);
     ~Building(); // Destructor
 
     void addFloor(const Floor& floor);
     void addElevator(const Elevator& elevator);
     void addGuest(const Guest& guest);
-
     Guest* searchGuestByName(const std::string& name); // Linear search
     void sortGuests(); // Bubble sort
 

@@ -85,3 +85,20 @@ void Building::vacateRoom() {
         }
     }
 }
+
+Building::Building(const int &numFloors, const int& numRooms, const int &capacity) : numFloors(numFloors), numRooms(numRooms), capacity(capacity) {
+    if(numFloors < 0 || capacity < 0){
+        throw std::invalid_argument("Invalid argument");
+    }
+    for (int i = 0; i < numFloors; i++) {  // 5 floors
+        Floor floor;
+        for (int j = 0; j < numRooms/numFloors; j++) {  // 10 rooms per floor
+            int roomNumber = (i * 100) + j + 100;
+            floor.addRoom(Room(roomNumber));
+        }
+        this->addFloor(floor);
+    }
+}
+
+
+

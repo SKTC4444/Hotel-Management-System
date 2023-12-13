@@ -22,3 +22,11 @@ bool operator==(const Guest& lhs, const Guest& rhs) {
     // For example, comparing based on name and room number
     return lhs.getName() == rhs.getName() && lhs.getRoomNumber() == rhs.getRoomNumber();
 }
+
+bool Guest::isCheckedIn() const {
+    return checkIn;
+}
+
+void Guest::setCheckIn(bool checkIn) {
+    Guest::checkIn = checkIn;
+}

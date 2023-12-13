@@ -6,10 +6,12 @@ Clerk::Clerk(const std::string& name, Building* building) : Person(name), assign
 
 Clerk::~Clerk() {
     // Destructor implementation
+
 }
 
 void Clerk::checkInGuest(Guest& guest) {
     assignedBuilding->addGuest(guest);
+    guest.setCheckIn(true);
 }
 
 void Clerk::assignRoomToGuest(Guest& guest) {
@@ -38,5 +40,17 @@ void Clerk::assignRoomToGuest(Guest& guest) {
         }
     }
 }
+
+Building *Clerk::getAssignedBuilding() const {
+    return assignedBuilding;
+}
+
+void Clerk::setAssignedBuilding(Building *assignedBuilding) {
+    Clerk::assignedBuilding = assignedBuilding;
+}
+
+
+
+
 
 // Implement other necessary methods...

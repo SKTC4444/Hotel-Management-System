@@ -12,4 +12,8 @@ std::string Person::getName() const {
     return name; // Return the person's name
 }
 
+void Person::setName(const std::string &name) {
+    Person::name = name;
+}
+
 // Implement other necessary common methods...

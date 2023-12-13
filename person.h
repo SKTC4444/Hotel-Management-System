@@ -10,6 +10,8 @@
 class Person {
 protected:
     std::string name;
+public:
+    void setName(const std::string &name);
 
 public:
     Person(const std::string& name); // Constructor with the person's name

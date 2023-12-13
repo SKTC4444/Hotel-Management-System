@@ -6,7 +6,7 @@
 #include "elevator.h"
 
 void startScreen();
-void loginScreen();
+bool loginScreen();
 void mainInterface();
 Clerk clerkInstance("", nullptr);
 Building hotel(5,20,20);
@@ -23,11 +23,14 @@ void startScreen(){
     std::cout << "Please press enter to continue." << std::endl;
     std::cin.ignore();
 }
-void loginScreen(){
+bool loginScreen(){
     std::cout << "Select an option:" << std::endl;
     std::cout << "1. Sign-in" << std::endl;
     std::cout << "2. Exit" << std::endl;
     int userChoice;
+
+    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cin >> userChoice;
     switch (userChoice) {
         case 1: {
@@ -37,13 +40,17 @@ void loginScreen(){
             clerkInstance.setName(clerkName);
             clerkInstance.setAssignedBuilding(&hotel);
             std::cout << "Welcome " << clerkName << "!" << std::endl;
-            mainInterface();
-            break;
+            //mainInterface();
+            return true;
         }
         case 2:
             //exit
             std::cout << "Exiting the hotel management system." << std::endl;
-            return;
+            return false;
+        default:
+            std::cout << "Invalid input. Please try again." << std::endl;
+            loginScreen();
+
     }
 }
 
@@ -133,15 +140,15 @@ void mainInterface(){
                 std::cout << "Current guests in the hotel:" << std::endl;
                 for (auto it = guestList.begin(); it != guestList.end(); ++it) {
                     Guest &currentGuest = *it;
-                    /*
-                    if(currentGuest.getRoomNumber() < 0){
-                        std::cout << currentGuest.getName() << " - Checked-in, no room assigned " << std::endl;
+
+                    if(currentGuest.getRoomNumber() == -1){
+                        std::cout << currentGuest.getName() << " - no room assigned " << std::endl;
                     }
                     else{
                         std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
                     }
-                     */
-                    std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
+
+                    //std::cout << currentGuest.getName() << " - Room " << currentGuest.getRoomNumber() << std::endl;
 
                 }
                 break;
@@ -164,7 +171,9 @@ void mainInterface(){
 
 int main() {
     startScreen();
-    loginScreen();
+    if (!loginScreen()){
+        return 0;
+    }
     mainInterface();
 
     /*

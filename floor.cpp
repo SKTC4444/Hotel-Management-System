@@ -39,7 +39,8 @@ int Floor::getNumberOfRooms() const {
 }
 
 bool Floor::hasAvailableRoom() const {
-    for (const auto& room : rooms) {
+    // Iterate through the vector of rooms to check for an unoccupied room
+    for (const Room& room : rooms) {
         if (!room.isOccupied()) {
             return true; // Found an unoccupied room
         }

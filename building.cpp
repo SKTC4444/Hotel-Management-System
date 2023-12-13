@@ -22,7 +22,7 @@ void Building::addGuest(const Guest& guest) {
 
 Guest* Building::searchGuestByName(const std::string& name) {
     // Iterate through the linked list of guests to find the guest by name using linear search
-    for (auto& guest : guests) {
+    for (Guest& guest : guests) {
         if (guest.getName() == name) {
             return &guest;
         }
@@ -60,7 +60,8 @@ Floor& Building::getFloor(int index) {
 */
 
 bool Building::isFull() const {
-    for (const auto& floor : floors) {
+    for (std::vector<Floor>::const_iterator floorIt = floors.begin(); floorIt != floors.end(); ++floorIt) {
+        const Floor& floor = *floorIt;
         if (floor.hasAvailableRoom()) {
             return false; // Found a floor with an unoccupied room
         }
@@ -73,8 +74,8 @@ LinkedList<Guest>& Building::getGuestList() {
 }
 
 void Building::vacateRoom() {
-
-    for (auto& floor : floors) {
+    for (std::vector<Floor>::iterator floorIt = floors.begin(); floorIt != floors.end(); ++floorIt) {
+        Floor& floor = *floorIt;
         for (int i = 0; i < floor.getNumberOfRooms(); ++i) {
             Room* room = floor.getRoom(i);
             if (room && room->isOccupied()) {

@@ -86,19 +86,21 @@ void mainInterface(){
                 std::cout << "Please enter the name of the guest: " << std::endl;
                 std::cin >> guestName;
                 LinkedList<Guest>& guestList = hotel.getGuestList();
-                for (auto it = guestList.begin(); it != guestList.end(); ++it) {
+                for (LinkedList<Guest>::Iterator it = guestList.begin(); it != guestList.end(); ++it) {
                     Guest &currentGuest = *it;
                     if (currentGuest.getName() == guestName) {
                         currentGuest = guest;
                     }
                 }
                 if(hotel.isFull()){
-                    std::cout << "The hotel is currently full. Please vacate a room before assigning a room: " << std::endl;
+                    std::cout << "The hotel is currently full. Please vacate a room before assigning a room: "
+                    << std::endl;
                     break;
                 } else{
                     if(!guest.isCheckedIn()){
                         std::cout << guest.isCheckedIn() << std::endl;
-                        std::cout << "Guest " << guestName << " has not been checked in. Please check in the guest before assigning a room: " << std::endl;
+                        std::cout << "Guest " << guestName
+                        << " has not been checked in. Please check in the guest before assigning a room: " << std::endl;
                         break;
                     }
                     std::cout << "Guest " << guestName << " has been assigned a room." << std::endl;
@@ -111,7 +113,8 @@ void mainInterface(){
                     elevator.removePassenger(&guest);
 
                     // Simulate guest entering their room
-                    std::cout << "Guest " << guest.getName() << " exits the elevator and enters room " << guest.getRoomNumber() << std::endl;
+                    std::cout << "Guest " << guest.getName() << " exits the elevator and enters room " <<
+                    guest.getRoomNumber() << std::endl;
                     break;
                 }
             }
@@ -136,7 +139,7 @@ void mainInterface(){
                 // Displaying sorted guest names with room numbers
                 LinkedList<Guest> &guestList = hotel.getGuestList();
                 std::cout << "Current guests in the hotel:" << std::endl;
-                for (auto it = guestList.begin(); it != guestList.end(); ++it) {
+                for (LinkedList<Guest>::Iterator it = guestList.begin(); it != guestList.end(); ++it) {
                     Guest &currentGuest = *it;
 
                     if(currentGuest.getRoomNumber() == -1){

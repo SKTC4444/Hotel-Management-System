@@ -16,10 +16,6 @@ bool Room::isOccupied() const {
     return guest != nullptr; // Check if the room is occupied
 }
 
-/*Guest* Room::getGuest() const {
-    return guest; // Return the guest in the room
-}
-*/
 int Room::getRoomNumber() const {
     return roomNumber; // Return the room number
 }

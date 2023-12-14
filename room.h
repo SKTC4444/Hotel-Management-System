@@ -15,7 +15,6 @@ public:
 
     void vacate(); // Vacate the room
     bool isOccupied() const; // Check if the room is occupied
-    //Guest* getGuest() const; // Get the guest in the room
     int getRoomNumber() const; // Get the room number
     void setGuest(Guest* newGuest);
 };

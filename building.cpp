@@ -12,10 +12,6 @@ void Building::addFloor(const Floor& floor) {
     floors.push_back(floor);
 }
 
-/*void Building::addElevator(const Elevator& elevator) {
-    elevators.insert(elevator);
-}
-*/
 void Building::addGuest(const Guest& guest) {
     guests.insert(guest);
 }
@@ -54,11 +50,6 @@ Floor& Building::getFloor(int index) {
     return floors[index];
 }
 
-/*Elevator& Building::getElevator(int index) {
-    return elevators.get(index);
-}
-*/
-
 bool Building::isFull() const {
     for (std::vector<Floor>::const_iterator floorIt = floors.begin(); floorIt != floors.end(); ++floorIt) {
         const Floor& floor = *floorIt;
@@ -86,7 +77,7 @@ void Building::vacateRoom() {
     }
 }
 
-Building::Building(const int &numFloors, const int& numRooms, const int &capacity) : numFloors(numFloors), numRooms(numRooms), capacity(capacity) {
+Building::Building(const int &numFloors, const int& numRooms, const int &capacity) {
     if(numFloors < 0 || capacity < 0){
         throw std::invalid_argument("Invalid argument");
     }
@@ -99,6 +90,3 @@ Building::Building(const int &numFloors, const int& numRooms, const int &capacit
         this->addFloor(floor);
     }
 }
-
-
-

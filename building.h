@@ -12,24 +12,18 @@ private:
     std::vector<Floor> floors;
     LinkedList<Elevator> elevators;
     LinkedList<Guest> guests;
-    int capacity;
-    int numFloors;
-    int numRooms;
-
 public:
     Building(); // Constructor
     Building(const int& numFloors, const int& numRooms, const int& capacity);
     ~Building(); // Destructor
 
     void addFloor(const Floor& floor);
-    //void addElevator(const Elevator& elevator);
     void addGuest(const Guest& guest);
     Guest* searchGuestByName(const std::string& name); // Linear search
     void sortGuests(); // Bubble sort
 
     int getNumberOfFloors() const;
     Floor& getFloor(int index);
-   // Elevator& getElevator(int index);
     bool isFull() const;
     LinkedList<Guest>& getGuestList();
     void vacateRoom();

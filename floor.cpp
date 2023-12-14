@@ -25,15 +25,6 @@ Room* Floor::getRoom(int roomNumber){
     return nullptr; // Room not found
 }
 
-/*void Floor::addGuestToRoom(Guest& guest, int roomNumber) {
-    Room* room = getRoom(roomNumber);
-    if (room) {
-        room->setGuest(&guest); // Pass the address of the non-const Guest reference
-    }
-}
-
-*/
-
 int Floor::getNumberOfRooms() const {
     return rooms.size();
 }
